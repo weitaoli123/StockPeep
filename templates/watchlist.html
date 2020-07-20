@@ -1,0 +1,56 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="watchlist_container">
+    <div id="watchHeader">
+        Watching:
+    </div>
+    <ul class="results_list">
+        {% for company in company_list %}
+            <li class="search_results">
+                Symbol: {{company.ticker}}
+                <br>
+                Name: {{company.name}}
+                <br>
+                Price: ${{company.price}}
+                <br>
+                <a href="{% url 'removeWatchlist' id=company.id %}">
+                    <button class="removeFromWatchlist watchlistButton" type="button">Remove from Watchlist</button>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>      
+</div>
+
+<div class="search_container">
+    <div id="searchHeader">
+        <form action="/findTicker/" method="post"> 
+            {% csrf_token %}
+            <label>Search: </label>
+            <input id="searchTicker" type="text" name="ticker" placeholder="Enter ticker" >
+        </form>
+    Search Results: 
+    </div>
+    <ul class="results_list">
+        {% for result in result_list %}
+            <li class="search_results">
+                Symbol: {{result.symbol}}
+                <br>
+                Name: {{result.name}}
+                <br>
+                {% if not result.symbol in tickerList %}
+                <a href="{% url 'addWatchlist' ticker=result.symbol name=result.name %}">
+                    <button class="watchlistButton" id="addToWatchlist" type="button">Add to Watchlist</button>
+                </a>
+                {% else %} 
+                    <button class="watchlistButton" id="alreadyInWatchlist" type="button">Already in Watchlist</button>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<script>
+    document.getElementById("watchlist").classList.add("active");
+    document.getElementById("home").classList.remove("active");
+</script>
+{% endblock %}

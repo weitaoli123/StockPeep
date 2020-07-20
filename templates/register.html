@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<hmtl lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap"/>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<body>
+    <div id="headline">Stock Peep</div>
+    <div class="login_msg">{{msg}}</div>
+    <form class="signin" action="/register/" method="post"> 
+        {% csrf_token %}
+        <input class="login_cred" type="text" placeholder="name" name="name">
+        <input class="login_cred" type="email" placeholder="email" name="email">
+        <input class="login_cred" type="password" placeholder="password" name="password">
+        <input id="submit" type="submit" value="Register">
+    </form>
+    <button class="signin" id="register" onclick="location.href='{% url 'signInPage' %}'">Sign In</button>
+</body>
+</hmtl>

@@ -1,0 +1,346 @@
+.login_msg{
+    color: red;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+}
+
+#headline {
+    width: 20%;
+    margin: 0px auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    font-size: 75px;
+    font-weight: 700;
+    font-family: 'Comfortaa', cursive;
+    color: rgb(90, 224, 142);
+}
+
+.signin {
+    width: 20%;
+    margin: 0px auto;
+    padding: 20px;
+    
+}
+
+.login_cred {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    padding: 15px;
+    outline: none;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
+#login_cred:hover {
+    border: 1px solid #777;
+}
+
+#submit {
+    display: block;
+    border: 1px solid rgb(90, 224, 142);
+    border-radius: 5px;
+    background: rgb(90, 224, 142);
+    padding: 15px;
+    color: #fff;
+    width: 100%;
+    transition: 0.3s;
+    font-size: 15px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
+#register{
+    display: block;
+    border: 1px solid rgb(90, 224, 142);
+    border-radius: 5px;
+    background: rgb(90, 224, 142);
+    color: #fff;
+    font-family: 'Comfortaa', cursive;
+    transition: 0.3s;
+    padding: 35px;
+    font-size: 15px;
+}
+
+#submit:hover, #register:hover {
+    background: #fff;
+    color: rgb(90, 224, 142);
+    border: 1px solid rgb(90, 224, 142);
+}
+
+#home_headline{
+    padding: 10px 16px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 700;
+    font-family: 'Comfortaa', cursive;
+    color: rgb(90, 224, 142);
+    background-color: white;
+    border-bottom: 1px solid rgb(90, 224, 142);
+    text-shadow: 2px 2px 4px rgb(194, 214, 214);
+}
+
+.navbar{
+    list-style-type: none;
+    margin: 5px;
+    top: 72px;
+    width: 15%;
+    padding: 0;
+    /* background-color: #f1f1f1; */
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    text-shadow: 1px 1px 2px rgb(194, 214, 214);
+    box-shadow: 5px 10px 10px rgb(194, 214, 214);
+}
+
+.nav-link, .welcome-user{
+    display: block;
+    padding: 20px 16px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-size: 2vw;
+    color:rgb(90, 224, 142); 
+}
+
+.nav-link.active{
+    background-color: rgb(90, 224, 142);
+    color: white !important;
+}
+
+.nav-link:hover:not(.active){
+    background-color: rgb(194, 214, 214);
+    color: white;
+}
+
+.nav-link:visited{ 
+    text-decoration: none; 
+    color:rgb(90, 224, 142); 
+}
+
+.main_body{
+    margin-top: 72px;
+    margin-left:20%;
+    height: 100%;
+    overflow: auto;
+    font-family: 'Comfortaa', cursive;
+}
+
+.watchlist_container, .search_container{
+    width: 50%;
+    float: left;
+    height: 100vh;
+    overflow: scroll;
+    -ms-overflow-style: none;
+}
+
+.watchlist_container::-webkit-scrollbar{
+    display: none;
+}
+
+#searchHeader{
+    position: fixed;
+    background-color: white;
+    padding-right: 20vw;
+    padding-bottom: 1vw;
+    padding-top: 30px;
+}
+
+#watchHeader{
+    position: fixed;
+    background-color: white;
+    padding-right: 22vw;
+    padding-bottom: 2vw;
+    padding-top: 30px;
+    font-size: 30px;
+}
+
+.results_list{
+    list-style-type: none;
+    padding-top: 80px;
+    height: 90%;
+}
+
+.search_results{
+    padding: 2vw 1vw 1vw 0.5vw;
+    font-size: 1vw;
+    border-bottom: 1px solid rgb(90, 224, 142);
+    width: 70%;
+    transition-duration: 0.4s;
+    box-shadow: 3px 3px 10px rgb(194, 214, 214);
+}
+
+.search_results:hover{
+    background-color: #eeefff;
+
+}
+
+#searchTicker{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-bottom: 0.5vw;
+}
+
+.watchlistButton{
+    border-radius: 5px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 0.5vw;
+}
+
+#addToWatchlist{
+    border: 1px solid rgb(90, 224, 142);
+}
+
+#addToWatchlist:hover {
+    background: rgb(90, 224, 142);
+    color: white;    
+}
+
+.removeFromWatchlist{
+    border: 1px solid red;
+    background: red;
+    color: white;
+}
+
+.removeFromWatchlist:hover {
+    background: white;
+    color: black;
+}
+
+#alreadyInWatchlist{
+    background: rgb(194, 214, 214);
+    pointer-events: none;
+    border: 1px solid rgb(90, 224, 142);
+}
+
+.circular-chart {
+    display: inline-block;
+    max-width: 40%;
+    max-height: 40%;
+    padding-top: 2%;
+}
+  
+.circle {
+    fill: none;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.circular-chart.orange .circle {
+    stroke: #ff9f00;
+    stroke-width: 2.5;
+}
+  
+.circular-chart.green .circle {
+    stroke: rgb(90, 224, 142);
+    stroke-width: 2.8;
+}
+
+.circular-chart.red .circle {
+    stroke: red;
+    stroke-width: 2.5;
+}
+  
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+.company_container, .chart_container{
+    float: left;
+    height: 100vh;
+    overflow: scroll;
+    -ms-overflow-style: none;
+}
+
+.company_container::-webkit-scrollbar{
+    display: none;
+}
+
+
+.company_container{
+    width: 40%;
+    padding-left: 10px;
+}
+
+.chart_container{
+    width: 58%;
+    margin-top: 50px;
+}
+
+.percentage {
+    fill: #666;
+    font-family: 'Comfortaa', cursive;
+    text-anchor: middle;
+}
+
+.company_info{
+    padding: 3vw 3vw 0vw 5vw;
+    width: 70%;
+    box-shadow: 3px 5px 10px rgb(194, 214, 214);
+}
+
+.company_info:hover{
+    background-color: #eeefff;
+}
+
+.company_info:hover .circle-bg{
+    stroke: rgb(194, 214, 214);
+}
+
+.detail_description{ 
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.spec_detail{
+    display: inline-block;
+    padding-left: 10px;
+    padding-bottom: 15px;
+}
+
+.dd_container{
+    display: inline-block;
+    margin: auto;
+    width: 30%;
+    float: left;
+    padding-left: 15%;
+    padding-top: 5%
+}
+
+.detail_header{
+    margin: auto;
+    width: 50%;
+    padding-bottom: 10px;
+    font-size: 1.5vw;
+}
+
+#chart{
+    padding-left: 50px;
+}
+
+.price{
+    padding-left: 100px;
+}

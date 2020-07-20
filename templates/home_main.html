@@ -1,0 +1,110 @@
+{% extends 'home.html' %}
+{% load static %}
+{% static "" as baseUrl %}
+
+{% block content %}
+<div class="company_container">
+        {% for company in companies %}
+            <div class="company_info" onclick="showDetails({{company}})">
+                {{company.ticker}}: {{company.name}}
+                <br>
+                Price: ${{company.price}}
+                <br>
+                {% if company.score > 60 %}
+                    <svg viewBox="0 0 38 38" class="circular-chart green">
+                        <path class="circle-bg"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <path class="circle"
+                        stroke-dasharray="{{company.score}}, 100"
+                        d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <text x="19" y="18.35" class="percentage" font-size=0.5vw>{{company.score}}%</text>
+                        <text x="18" y="23.35" class="percentage" font-size=0.3vw> Buy </text>
+                    </svg>
+                {% elif company.score < 45 %}
+                    <svg viewBox="0 0 38 38" class="circular-chart red">
+                        <path class="circle-bg"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <path class="circle"
+                        stroke-dasharray="{{company.score}}, 100"
+                        d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <text x="19" y="18.35" class="percentage" font-size=0.5vw>{{company.score}}%</text>
+                        <text x="18" y="23.35" class="percentage" font-size=0.3vw> Buy </text>
+                    </svg>
+                {% else %}
+                    <svg viewBox="0 0 38 38" class="circular-chart orange">
+                        <path class="circle-bg"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <path class="circle"
+                        stroke-dasharray="{{company.score}}, 100"
+                        d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <text x="19" y="18.35" class="percentage" font-size=0.5vw>{{company.score}}%</text>
+                        <text x="18" y="23.35" class="percentage" font-size=0.3vw> Buy </text>
+                    </svg>
+                {% endif %}    
+            </div>
+        {% endfor %}
+</div>
+<div class="chart_container">
+    ​<div id="details" style="visibility: hidden">
+        <div class="detail_header" id="name"></div>
+        <div class="detail_header price" id="price"></div>
+        <img id="chart"/>
+        <div class="dd_container">
+            <div class="detail_description">High:</div><div class="spec_detail" id="high"></div>
+            <br>
+            <div class="detail_description">Low:</div><div class="spec_detail" id="low"></div>
+            <br>
+            <div class="detail_description">Avg Vol(20):</div><div class="spec_detail" id="avgVolume"></div>
+            <br>
+            <div class="detail_description">Volume:</div><div class="spec_detail" id="Volume"></div>
+            <br>
+        </div>
+        <div class="dd_container">
+            <div class="detail_description">10MA:</div><div class="spec_detail" id="10ma"></div>
+            <br>
+            <div class="detail_description">20MA:</div><div class="spec_detail" id="20ma"></div>
+            <br>
+            <div class="detail_description">100MA:</div><div class="spec_detail" id="100ma"></div>
+            <br>
+            <div class="detail_description">RSI(14):</div><div class="spec_detail" id="RSI14"></div>
+        </div>
+    </div>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+</div>
+<script>
+    function showDetails(company) {
+        document.getElementById("details").style.visibility='visible';
+        var x = "http://127.0.0.1:8000/static/media/";
+        var y = x.concat(company.ticker);
+        var path = y.concat(".png");
+        document.getElementById("chart").src = path;    
+        document.getElementById("name").innerHTML = company.ticker + ' : ' + company.name;
+        document.getElementById("price").innerHTML= '$' + company.price;
+        document.getElementById("high").innerHTML = '$' + company.High;
+        document.getElementById("low").innerHTML= '$' + company.Low;
+        document.getElementById("avgVolume").innerHTML= company.avgVolume20;
+        document.getElementById("Volume").innerHTML= company.Volume;
+        document.getElementById("10ma").innerHTML= '$' + company.ma10;
+        document.getElementById("20ma").innerHTML= '$' + company.ma20;
+        document.getElementById("100ma").innerHTML= '$' + company.ma100;
+        document.getElementById("RSI14").innerHTML= company.rsi14;
+    }
+</script>
+{% endblock %}

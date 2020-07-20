@@ -1,0 +1,16 @@
+<nav>
+    <ul class="navbar">
+        <li>
+            <label class="welcome-user"> Welcome, <b>{{e}}</b></label>
+        </li>
+        <li>
+            <a class="nav-link active" id="home" href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+            <a class="nav-link" id="watchlist" href="{% url 'watchlist' %}">Watchlist</a>
+        </li>
+        <li>
+            <a class="nav-link" id="logout" href="{% url 'logout' %}">Logout</a>
+        </li>
+    </ul>
+</nav>
